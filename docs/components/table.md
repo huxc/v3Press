@@ -2,9 +2,11 @@
 title: v3-table表格组件
 ---
 
-# v3-table 配置式表格组件
+# v3-table
 
+::: info 配置式表格组件
 用与列表页中的列表数据展示，它是基于配置展示所需数据。拥有自定义 slot、render 渲染、formatter 等功能使其在快速开发的前提下同时拥有极高的可定制能力。支持 el-table 的所有属性
+:::
 
 ## 基础用法
 
@@ -80,6 +82,24 @@ onMounted(() => {
 </script>
 ```
 
+### 获取数据初始化参数
+
+赋值`initParam`可设置查询默认参数
+
+```vue{5}
+<template>
+  <div class="table-box">
+    <v3-table
+      ref="tableRef"
+      :initParam="{xx:'xx'}"
+      :columns
+      :request-api
+    >
+  </div>
+</template>
+
+```
+
 ## 按钮插槽
 
 ### 顶部插槽
@@ -140,9 +160,9 @@ const columns = [
 </template>
 ```
 
-## 带查询条件
+## 筛选条件
 
-传入`searchProps`属性自动显示查询条件，详情查看下表**searchProps**
+传入`searchProps`属性自动显示查询条件，详情查看下表[searchProps](#筛选属性)
 
 ---
 
@@ -159,56 +179,6 @@ const columns = [
     ...
   })
   ...
-```
-
-赋值`searchProps.initParam`可设置查询默认参数
-
-```js
-//hooks/useSearch.js
-
-export function useSearch() {
-  const initParam = { roleName: 888};
-  const searchItems = [
-    {
-      tag: "input",
-      itemAttrs: {
-        label: "角色",
-      },
-      attrs: {
-        key: "roleName",
-        maxlength: 10,
-        placeholder: "请输入工号",
-      },
-    }
-    ...
-  ];
-  return {
-    searchItems,
-    initParam,
-  };
-}
-```
-
-```vue{5}
-<template>
-  <div class="table-box">
-    <v3-table
-      ref="tableRef"
-      :search-props
-      :columns
-      :request-api
-    >
-  </div>
-</template>
-
-<script setup name="example-table">
-import { useSearch } from './hooks/useSearch'
-const tableRef = ref()
-
-const searchProps = useSearch()
-
-</script>
-
 ```
 
 赋值`searchProps.formatQuery`可格式化查询参数
@@ -253,32 +223,33 @@ const searchProps = useSearch()
 查询条件是利用`v3-form`组件，详细参数查看[v3-form](/docs/components/form.md)节点
 :::
 
-## Attributes
+## 属性
 
 | 参数          | 说明                          |   类型   |             默认值             |
 | :------------ | ----------------------------- | :------: | :----------------------------: |
+| ...           | 支持 el-table 的所有属性      |   ...    |              可选              |
 | requestApi    | 表格数据接口                  |  string  |              必填              |
 | columns       | 表格字段（参见上方代码演示）  |  array   |              必填              |
 | isMultiple    | 是否可选择多列                | boolean  |             `true`             |
 | indexVisible  | 是否显示序号                  | boolean  |             `true`             |
 | isPagination  | 是否显示分页                  | boolean  |             `true`             |
 | isOnePage     | 数据只有一页是否显示分页      | boolean  |            `false`             |
+| initParam     | 获取数据初始化参数            |  object  |              `{}`              |
 | formatRequest | 格式化列表接口返回数据        | function |             `null`             |
 | searchProps   | 表格查询`详见下表searchProps` |  object  |             `null`             |
 | pageRequest   | 页码与每页条数                |  object  |    `{page: 1,pageSize: 10}`    |
 | pageSizes     | 每页显示个数选择器的选项设置  | number[] | ` [10, 20, 50, 100, 200, 500]` |
 
-### searchProps
+### 筛选属性
 
 | 参数        | 说明                            |      类型      | 默认值 |
 | :---------- | ------------------------------- | :------------: | :----: |
 | submitMsg   | 查询按钮名称                    |     string     |  查询  |
 | resetMsg    | 重置按钮名称                    |     array      |  重置  |
-| initParam   | 筛选默认值                      |     object     | ` {}`  |
 | searchItems | 表单`v3-form的form-items属性`） |     array      |  `[]`  |
 | formatQuery | 格式化查询参数                  | function(data) | `null` |
 
-## Events
+## 事件
 
 | 方法名      | 说明                           |    类型    |
 | :---------- | ------------------------------ | :--------: |
@@ -286,7 +257,7 @@ const searchProps = useSearch()
 | rowDblclick | 双击行时触发该事件             | `Function` |
 | callBack    | table 数据源变化后时触发该事件 | `Function` |
 
-## Slot
+## 插槽
 
 | name        | 说明                                 |
 | :---------- | ------------------------------------ |

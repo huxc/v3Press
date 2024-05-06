@@ -18,6 +18,7 @@ export default defineConfig({
     sidebar: [
       {
         text: "开始",
+        collapsed: false,
         items: [
           { text: "简介", link: "/docs/start/introduce.md" },
           { text: "快速上手", link: "/docs/start/index.md" },
@@ -25,18 +26,20 @@ export default defineConfig({
       },
       {
         text: "组件",
+        collapsed: false,
         items: [
+          { text: "v3-form", link: "/docs/components/form.md" },
+          { text: "v3-form-item", link: "/docs/components/formItem.md" },
           {
             text: "v3-table",
             link: "/docs/components/table.md",
           },
-          { text: "v3-form", link: "/docs/components/form.md" },
-          { text: "v3-form-item", link: "/docs/components/formItem.md" },
           { text: "v3-dialog", link: "/docs/components/dialog.md" },
         ],
       },
       {
         text: "hooks",
+        collapsed: false,
         items: [
           { text: "useDialog", link: "/docs/components/useDialog.md" },
           { text: "useDrawer", link: "/docs/components/useDrawer.md" },
@@ -46,6 +49,7 @@ export default defineConfig({
       },
       {
         text: "权限方案",
+        collapsed: false,
         items: [
           { text: "权限接口", link: "/docs/auths/api.md" },
           { text: "菜单权限", link: "/docs/auths/menu.md" },
@@ -54,6 +58,7 @@ export default defineConfig({
       },
       {
         text: "工具",
+        collapsed: false,
         items: [
           { text: "常用函数", link: "/docs/tools/utils.md" },
           { text: "axios封装", link: "/docs/tools/api.md" },
@@ -62,10 +67,12 @@ export default defineConfig({
       },
       {
         text: "规范",
+        collapsed: false,
         items: [{ text: "工程化工作流", link: "/docs/apis/file.md" }],
       },
       {
         text: "部署",
+        collapsed: false,
         items: [{ text: "打包部署", link: "/docs/deploy/index.md" }],
       },
     ],
