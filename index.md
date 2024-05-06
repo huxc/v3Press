@@ -20,19 +20,19 @@ hero:
 
 features:
   - icon: 🔥
-    title: 最新流行技术栈
-    details: 基于 Vue3.4、Vite5、Pinia、Element-Plus 等最新技术栈开发
+    title: 技术栈
+    details: 基于 Vue3.4、Vite5、Pinia、Element-Plus 等技术栈开发
   - icon: ✨
-    title: 简单易上手
-    details: 项目代码没有过度封装，简单、易读
-  - icon: 🚀
-    title: 接口请求
-    details: 基于Axios二次封装，无需import直接使用，支持自动错误提示、Loading、token过期处理、文件流导出等
+    title: Hooks
+    details: 命令式调用弹窗、抽屉。常用Hooks封装，在一定程度上节省开发时间
   - icon: 🛠️
-    title: 二次封装的组件和Hooks
-    details: 提供表单、列表、弹窗等二次封装组件、常用Hooks封装，在一定程度上节省开发时间
+    title: 组件
+    details: 提供配置式表单、表格、以及可扩展的表单元素组件
+  - icon: 🚀
+    title: 接口
+    details: 基于Axios二次封装。按需加载，无需import直接使用；支持自动错误提示、Loading、token过期处理、文件流导出等
   - icon: 🔐
-    title: 项目权限管理
+    title: 权限管理
     details: 提供简单的菜单、路由及按钮权限管理方案
   - icon: ⚡️
     title: 规范工程化工作流
