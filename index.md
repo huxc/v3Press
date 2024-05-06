@@ -13,7 +13,7 @@ hero:
   actions:
     - theme: brand
       text: 快速了解
-      link: /docs/components/table.md
+      link: /docs/start/introduce.md
 
     - theme: alt
       text: 在GitLab上查看

@@ -11,6 +11,9 @@ title: v3-table表格组件
 ### 自动请求
 
 定义一个数组对象，作为列表列名(`columns`)，`request-api` 为列表请求接口，定义后会自动发起请求
+::: warning 注意点
+使用组件 v3-table，在给 request-api `首次赋值`后会自动请求一次；如需要设置查询条件等情况，在设置条件后再赋值 request-api 会自动请求
+:::
 
 ```js
 // hooks/useHandle.js
@@ -41,8 +44,8 @@ export function useHandle() {
   <div class="tabel-box">
     <v3-table
       ref="tableRef"
-      :columns="columns"
-      :request-api="requestApi"
+      :columns
+      :request-api
     />
   </div>
 </template>
@@ -58,35 +61,22 @@ const { columns, requestApi } = useHandle();
 
 ### 手动请求
 
-`requestApi`设置为 `null`,在 `onMounted` 定义，需求请求的适合调用 table 的 `tableRef` 实例的`refresh`方法请求
+`requestApi`已赋值,在需要请求的逻辑中，调用 table 的 `tableRef` 实例的`refresh`方法请求
 
-```js
-// hooks/useHandle.js
-const requestApi = ref(null);
-```
-
-```vue{5,19,20}
+```vue
 <!-- table.vue -->
 <template>
   <div class="tabel-box">
-    <v3-table
-      ref="tableRef"
-      :columns="columns"
-      :request-api="requestApi"
-    />
+    <v3-table ref="tableRef" />
   </div>
 </template>
 
 <script setup name="example-table">
-import { useHandle } from "./hooks/useHandle";
-
 const tableRef = ref();
-const { columns, requestApi } = useHandle();
 
 onMounted(() => {
-  requestApi.value = 'api-url'
-  tableRef.value.refresh()
-})
+  tableRef.value.refresh();
+});
 </script>
 ```
 
@@ -101,8 +91,8 @@ onMounted(() => {
   <div class="tabel-box">
     <v3-table
       ref="tableRef"
-      :columns="columns"
-      :request-api="requestApi"
+      :columns
+      :request-api
       :query-columns="searchItems"
     >
       <template #headLeft="{ rows, ids, isSelected }">
@@ -135,7 +125,7 @@ const columns = [
   <div class="tabel-box">
     <v3-table
       ref="tableRef"
-      :columns="columns"
+      :columns
       :request-api="requestApi"
     >
       <template #operation>
@@ -152,34 +142,154 @@ const columns = [
 
 ## 带查询条件
 
+传入`searchProps`属性自动显示查询条件，详情查看下表**searchProps**
+
+---
+
+分页参数在`hooks/useTable.js`中，可以修改`state中的listQuery`
+
+```js{3-7}
+...
+  const state = reactive({
+    // 页码及每页条数
+    listQuery: {
+      pageNum: pageRequest.page,
+      pageSize: pageRequest.pageSize,
+    },
+    ...
+  })
+  ...
+```
+
+赋值`searchProps.initParam`可设置查询默认参数
+
+```js
+//hooks/useSearch.js
+
+export function useSearch() {
+  const initParam = { roleName: 888};
+  const searchItems = [
+    {
+      tag: "input",
+      itemAttrs: {
+        label: "角色",
+      },
+      attrs: {
+        key: "roleName",
+        maxlength: 10,
+        placeholder: "请输入工号",
+      },
+    }
+    ...
+  ];
+  return {
+    searchItems,
+    initParam,
+  };
+}
+```
+
+```vue{5}
+<template>
+  <div class="table-box">
+    <v3-table
+      ref="tableRef"
+      :search-props
+      :columns
+      :request-api
+    >
+  </div>
+</template>
+
+<script setup name="example-table">
+import { useSearch } from './hooks/useSearch'
+const tableRef = ref()
+
+const searchProps = useSearch()
+
+</script>
+
+```
+
+赋值`searchProps.formatQuery`可格式化查询参数
+
+```js
+export function useSearch() {
+    ...
+  const formatQuery = (data) => {
+    //data为所有的查询条件，此处可随意更改
+    data.a = 2;
+    data.b = "全部";
+    ...
+  };
+  ...
+
+   return {
+    formatQuery
+  };
+}
+```
+
+```vue
+<template>
+  <div class="table-box">
+    <v3-table
+      ref="tableRef"
+      :search-props
+      :columns
+      :request-api
+    >
+  </div>
+</template>
+
+<script setup name="example-table">
+import { useSearch } from './hooks/useSearch'
+const tableRef = ref()
+
+const searchProps = useSearch()
+```
+
+::: info Tip
 查询条件是利用`v3-form`组件，详细参数查看[v3-form](/docs/components/form.md)节点
+:::
 
 ## Attributes
 
-| 参数          | 说明                               |   类型   |          默认值          |
-| :------------ | ---------------------------------- | :------: | :----------------------: |
-| sourceData    | 显示的数据                         |  array   |           必填           |
-| total         | 总条目数                           |  number  |           必填           |
-| columns       | 需要展示的字段（参见下方代码演示） |  array   |           必填           |
-| loading       | 是否加载中                         | boolean  |         `false`          |
-| selectVisible | 是否可选择行                       | boolean  |          `true`          |
-| pageRequest   | 页码与每页条数                     |  object  | `{page: 1,pageSize: 10}` |
-| exportVisible | 是否可导出                         | boolean  |          `true`          |
-| deleteVisible | 是否可以批量删除                   | boolean  |          `true`          |
-| exportName    | 导出文件默认名称                   |  string  |            ''            |
-| pageSizes     | 每页显示个数选择器的选项设置       | number[] |          ` []`           |
+| 参数          | 说明                          |   类型   |             默认值             |
+| :------------ | ----------------------------- | :------: | :----------------------------: |
+| requestApi    | 表格数据接口                  |  string  |              必填              |
+| columns       | 表格字段（参见上方代码演示）  |  array   |              必填              |
+| isMultiple    | 是否可选择多列                | boolean  |             `true`             |
+| indexVisible  | 是否显示序号                  | boolean  |             `true`             |
+| isPagination  | 是否显示分页                  | boolean  |             `true`             |
+| isOnePage     | 数据只有一页是否显示分页      | boolean  |            `false`             |
+| formatRequest | 格式化列表接口返回数据        | function |             `null`             |
+| searchProps   | 表格查询`详见下表searchProps` |  object  |             `null`             |
+| pageRequest   | 页码与每页条数                |  object  |    `{page: 1,pageSize: 10}`    |
+| pageSizes     | 每页显示个数选择器的选项设置  | number[] | ` [10, 20, 50, 100, 200, 500]` |
+
+### searchProps
+
+| 参数        | 说明                            |      类型      | 默认值 |
+| :---------- | ------------------------------- | :------------: | :----: |
+| submitMsg   | 查询按钮名称                    |     string     |  查询  |
+| resetMsg    | 重置按钮名称                    |     array      |  重置  |
+| initParam   | 筛选默认值                      |     object     | ` {}`  |
+| searchItems | 表单`v3-form的form-items属性`） |     array      |  `[]`  |
+| formatQuery | 格式化查询参数                  | function(data) | `null` |
 
 ## Events
 
-| 方法名            | 说明                           |   参数    |
-| :---------------- | ------------------------------ | :-------: |
-| selectionChange   | 当选择项发生变化时会触发该事件 | selection |
-| handleBatchDelete | 点击批量删除会触发该事件       | selection |
-| changePage        | 切换页码时触发该事件           |   page    |
-| changeSize        | 切换每页条数时触发该事件       | pagesize  |
+| 方法名      | 说明                           |    类型    |
+| :---------- | ------------------------------ | :--------: |
+| rowClick    | 点击行时触发该事件             | `Function` |
+| rowDblclick | 双击行时触发该事件             | `Function` |
+| callBack    | table 数据源变化后时触发该事件 | `Function` |
 
 ## Slot
 
-| name    | 说明                             |
-| :------ | -------------------------------- |
-| buttons | 表格上方区域（一般用于展示按钮） |
+| name        | 说明                                 |
+| :---------- | ------------------------------------ |
+| headLeft    | 表格上方左侧区域（一般用于展示按钮） |
+| headRight   | 表格上方右侧区域（一般用于展示按钮） |
+| column.slot | 表格列插槽（定制化列）               |
