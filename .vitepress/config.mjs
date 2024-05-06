@@ -63,6 +63,10 @@ export default defineConfig({
         text: "规范",
         items: [{ text: "工程化工作流", link: "/docs/apis/file.md" }],
       },
+      {
+        text: "部署",
+        items: [{ text: "打包部署", link: "/docs/deploy/index.md" }],
+      },
     ],
 
     socialLinks: [
