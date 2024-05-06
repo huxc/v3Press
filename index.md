@@ -16,7 +16,7 @@ hero:
       link: /docs/components/table.md
 
     - theme: alt
-      text: 在Github上查看
+      text: 在GitLab上查看
 
 features:
   - icon: 🔥
@@ -25,16 +25,16 @@ features:
   - icon: ✨
     title: Hooks
     details: 命令式调用弹窗、抽屉。常用Hooks封装，在一定程度上节省开发时间
-  - icon: 🛠️
+  - icon: 🏗️
     title: 组件
     details: 提供配置式表单、表格、以及可扩展的表单元素组件
-  - icon: 🚀
-    title: 接口
-    details: 基于Axios二次封装。按需加载，无需import直接使用；支持自动错误提示、Loading、token过期处理、文件流导出等
+  - icon: 🛠️
+    title: 工具
+    details: axios封装 支持自动错误提示、Loading、token过期处理、文件流导出等
   - icon: 🔐
-    title: 权限管理
+    title: 权限方案
     details: 提供简单的菜单、路由及按钮权限管理方案
-  - icon: ⚡️
-    title: 规范工程化工作流
+  - icon: ⚠️
+    title: 规范
     details: 配置 Eslint、Prettier、Husky、Commitlint、Lint-staged 规范前端工程代码规范
 ---

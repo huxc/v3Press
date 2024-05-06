@@ -45,7 +45,7 @@ export default defineConfig({
         ],
       },
       {
-        text: "权限",
+        text: "权限方案",
         items: [
           { text: "权限接口", link: "/docs/auths/api.md" },
           { text: "菜单权限", link: "/docs/auths/menu.md" },
@@ -56,7 +56,8 @@ export default defineConfig({
         text: "工具",
         items: [
           { text: "常用函数", link: "/docs/tools/utils.md" },
-          { text: "封装axios", link: "/docs/tools/api.md" },
+          { text: "axios封装", link: "/docs/tools/api.md" },
+          { text: "指令", link: "/docs/tools/instruct.md" },
         ],
       },
       {
