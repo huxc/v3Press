@@ -16,7 +16,7 @@ hero:
       link: /docs/start/introduce.md
 
     - theme: alt
-      text: 在GitLab上查看
+      text: 在Github上查看
 
 features:
   - icon: 🔥
