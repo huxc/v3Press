@@ -5,7 +5,7 @@ export default defineConfig({
   base: "/v3Press/",
   title: "v3-admin-el",
   titleTemplate: " v3-admin-el",
-  head: [["link", { rel: "icon", href: "/v3Press/imgs/logo.png" }]],
+  head: [["link", { rel: "icon", href: "/v3Press/svg/logo.svg" }]],
   description: "v3-admin-el 文档",
   lang: "zh-CH",
   themeConfig: {
@@ -13,7 +13,7 @@ export default defineConfig({
     search: {
       provider: "local",
     },
-    logo: "/imgs/logo.png",
+    logo: "/svg/logo.svg",
     nav: [{ text: "首页", link: "/" }],
     sidebar: [
       {

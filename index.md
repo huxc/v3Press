@@ -8,7 +8,7 @@ hero:
   text: "轻量易用的中后台模版"
   tagline: 基于 Vue3.4 + Vite5 + Pinia + Element-Plus
   image:
-    src: /imgs/logo.png
+    src: /svg/logo.svg
     alt: CAPress
   actions:
     - theme: brand
