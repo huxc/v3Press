@@ -13,7 +13,7 @@ title: v3-table表格组件
 ### 自动请求
 
 定义一个数组对象，作为列表列名(`columns`)，`request-api` 为列表请求接口，定义后会自动发起请求
-::: warning 注意点
+::: warning 注意
 使用组件 v3-table，在给 request-api `首次赋值`后会自动请求一次；如需要设置查询条件等情况，在设置条件后再赋值 request-api 会自动请求
 :::
 
@@ -158,6 +158,24 @@ const columns = [
     </v3-table>
   </div>
 </template>
+```
+
+### render 函数
+
+如果不想使用插槽可选择使用 `render` 函数, 如下设置绿色的部门名称
+
+```js
+  const columns = [
+    ...
+    {
+      prop: 'departmentName',
+      label: '部门',
+      render: (h, { row }) => {
+        return h('span', { style: { color: '#60D7A7' } }, row.departmentName)
+      },
+    },
+    ...
+  ]
 ```
 
 ## 筛选条件

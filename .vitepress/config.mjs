@@ -35,6 +35,8 @@ export default defineConfig({
             link: "/docs/components/table.md",
           },
           { text: "v3-dialog", link: "/docs/components/dialog.md" },
+          { text: "v3-svg", link: "/docs/components/svg.md" },
+          { text: "v3-icon", link: "/docs/components/icon.md" },
         ],
       },
       {
@@ -73,7 +75,10 @@ export default defineConfig({
       {
         text: "部署",
         collapsed: false,
-        items: [{ text: "打包部署", link: "/docs/deploy/index.md" }],
+        items: [
+          { text: "环境变量", link: "/docs/deploy/index.md" },
+          { text: "自动部署", link: "/docs/deploy/index.md" },
+        ],
       },
     ],
 
