@@ -135,7 +135,7 @@ function onSave(){
 }
 
 function onSubmit(){
-    //校验成功的业务逻辑
+    //校验成功后的业务逻辑
 }
 </script>
 ```
@@ -154,7 +154,7 @@ function onSubmit(){
 //非自定义按钮无需此操作
 function onSave() {
   formRef.value.promiseSubmit().then(()=>{
-    //校验成功的业务逻辑
+    //校验成功后的业务逻辑
   })
 }
 </script>

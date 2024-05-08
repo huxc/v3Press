@@ -1,5 +1,18 @@
 # 快速上手
 
+::: info 规范
+
+项目需遵循 Open-Close 原则，对模版中无法满足需求的组件或函数，应该扩展而非修改
+
+:::
+
+## Node 版本
+
+::: danger 兼容性注意
+
+项目需要 Node.js 版本 18+，20+。当你的包管理器发出警告时，请注意升级你的 Node 版本。
+:::
+
 ## 项目 gitLab 地址
 
 ```js
@@ -11,32 +24,53 @@ pnpm install
 pnpm run dev
 ```
 
-## Node 版本
-
-::: danger 兼容性注意
-
-项目需要 Node.js 版本 18+，20+。当你的包管理器发出警告时，请注意升级你的 Node 版本。
-:::
-
 ## 包管理
 
-::: danger 提示
+::: danger 注意
 
 项目强制使用 pnpm 包管理工具。如果未安装请全局安装
 
 :::
 
-## 源管理
+## 业务接口地址
 
-建议使用 nrm 源管理工具，方便切换淘宝等其他源
+在路径`src/api/config/domainConfig.js`中 需根据业务接口地址进行相应的修改，支持后端微服务
 
 ```js
-npm install -g nrm
+const hosts = {
+  mock: "https://mock.apifox.com/m1/854051-1975280-default",
+  development: "", // 开发环境地址
+  test: "", // 测试环境地址
+  production: "", // 生产环境地址 运行 pnpm run prod
+};
+const host = hosts[import.meta.env.MODE];
+
+// 测试生产环境使用
+export const domain_list = {
+  business: `${host}/business`,
+  foundation: `${host}/foundation`,
+  account: `${host}/account`,
+  calculate: `${host}/calculate`,
+};
 ```
 
 ## 接口请求配置
 
-## 权限配置
+在使用 `v3-table` 组件时，需要根据接口返回值修改`src/hooks/useTable.js`中的返回值代码，更改需要赋值的返回字段
+
+```js
+/** getList函数中 **/
+
+// 基于接口统一处理 根据业务接口自行调整
+nextTick(() => {
+  if (typeOf(response.data) === "array") {
+    state.tableData = response.data;
+  } else {
+    state.tableData = response.data?.list || [];
+    state.totalCount = response.data?.total || 0;
+  }
+});
+```
 
 ## 格式化配置
 

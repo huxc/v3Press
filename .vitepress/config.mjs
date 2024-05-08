@@ -43,10 +43,10 @@ export default defineConfig({
         text: "hooks",
         collapsed: false,
         items: [
-          { text: "useDialog", link: "/docs/components/useDialog.md" },
-          { text: "useDrawer", link: "/docs/components/useDrawer.md" },
-          { text: "useEcharts", link: "/docs/components/useEcharts.md" },
-          { text: "useHandleData", link: "/docs/components/useHandleData.md" },
+          { text: "useDialog", link: "/docs/hooks/useDialog.md" },
+          { text: "useDrawer", link: "/docs/hooks/useDrawer.md" },
+          { text: "useEcharts", link: "/docs/hooks/useEcharts.md" },
+          { text: "useHandleData", link: "/docs/hooks/useHandleData.md" },
         ],
       },
       {
@@ -54,6 +54,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: "权限接口", link: "/docs/auths/api.md" },
+          { text: "路由配置", link: "/docs/auths/api.md" },
           { text: "菜单权限", link: "/docs/auths/menu.md" },
           { text: "按钮权限", link: "/docs/auths/button.md" },
         ],
@@ -70,7 +71,10 @@ export default defineConfig({
       {
         text: "规范",
         collapsed: false,
-        items: [{ text: "工程化工作流", link: "/docs/apis/file.md" }],
+        items: [
+          { text: "常见规范", link: "/docs/apis/file.md" },
+          { text: "工程化工作流", link: "/docs/apis/file.md" },
+        ],
       },
       {
         text: "部署",
