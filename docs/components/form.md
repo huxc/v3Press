@@ -358,17 +358,18 @@ defineExpose({
 
 ## 属性
 
-| 参数       | 说明                                    |       类型        | 默认值  |
-| :--------- | --------------------------------------- | :---------------: | :-----: |
-| model      | 表单数据对象                            |      object       |  必填   |
-| formItems  | 表单字段项（参见上方代码演示）          |       array       |  必填   |
-| inline     | 行内表单模式                            |      boolean      | `false` |
-| submitMsg  | 提交按钮文案(值为 false 时隐藏按钮)     | string \| boolean |  提交   |
-| resetMsg   | 重置按钮文案(值为 false 时隐藏按钮)     | string \| boolean |  重置   |
-| labelWitdh | 表单域标签的宽度                        |      string       | `auto`  |
-| footer     | 是否显示底部/右侧按钮                   |      boolean      | `false` |
-| size       | 用于控制该表单内组件的尺寸              |      string       | `small` |
-| gutter     | 栅格间隔（当 inline 值为 false 时无效） |      number       |  `24`   |
+| 参数       | 说明                                                                                        |       类型        | 默认值  |
+| :--------- | ------------------------------------------------------------------------------------------- | :---------------: | :-----: |
+| ...        | 支持 [el-form](https://element-plus.org/zh-CN/component/form.html#form-attributes) 所有属性 |        ...        |  必填   |
+| model      | 表单数据对象                                                                                |      object       |  必填   |
+| formItems  | 表单字段项（参见上方代码演示）                                                              |       array       |  必填   |
+| inline     | 行内表单模式                                                                                |      boolean      | `false` |
+| submitMsg  | 提交按钮文案(值为 false 时隐藏按钮)                                                         | string \| boolean |  提交   |
+| resetMsg   | 重置按钮文案(值为 false 时隐藏按钮)                                                         | string \| boolean |  重置   |
+| labelWitdh | 表单域标签的宽度                                                                            |      string       | `auto`  |
+| footer     | 是否显示底部/右侧按钮                                                                       |      boolean      | `false` |
+| size       | 用于控制该表单内组件的尺寸                                                                  |      string       | `small` |
+| gutter     | 栅格间隔（当 inline 值为 false 时无效）                                                     |      number       |  `24`   |
 
 ## 事件
 

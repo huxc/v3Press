@@ -26,6 +26,8 @@ export function useHandle() {
 
   // 列表列名
   const columns = [
+    { type: "selection", label: "多选" },
+    { type: "index", label: "序号", width: "60px" },
     { prop: "jobNo", label: "工号" },
     { prop: "nickName", label: "姓名" },
     { prop: "roleName", label: "角色" },
@@ -135,6 +137,8 @@ onMounted(() => {
 ```js{7}
 // hooks/useHandle.js
 const columns = [
+  { type: 'selection', label: '多选' },
+  { type: 'index', label: '序号', width: '60px' },
   ...
   { slot: "operation", label: "操作" },
 ];
@@ -166,7 +170,8 @@ const columns = [
 
 ```js
   const columns = [
-    ...
+    { type: 'selection', label: '多选' },
+    { type: 'index', label: '序号', width: '60px' },
     {
       prop: 'departmentName',
       label: '部门',
@@ -208,6 +213,7 @@ export function useSearch() {
     //data为所有的查询条件，此处可随意更改
     data.a = 2;
     data.b = "全部";
+    delete data.c
     ...
   };
   ...
@@ -243,20 +249,20 @@ const searchProps = useSearch()
 
 ## 属性
 
-| 参数          | 说明                          |   类型   |             默认值             |
-| :------------ | ----------------------------- | :------: | :----------------------------: |
-| ...           | 支持 el-table 的所有属性      |   ...    |              可选              |
-| requestApi    | 表格数据接口                  |  string  |              必填              |
-| columns       | 表格字段（参见上方代码演示）  |  array   |              必填              |
-| isMultiple    | 是否可选择多列                | boolean  |             `true`             |
-| indexVisible  | 是否显示序号                  | boolean  |             `true`             |
-| isPagination  | 是否显示分页                  | boolean  |             `true`             |
-| isOnePage     | 数据只有一页是否显示分页      | boolean  |            `false`             |
-| initParam     | 获取数据初始化参数            |  object  |              `{}`              |
-| formatRequest | 格式化列表接口返回数据        | function |             `null`             |
-| searchProps   | 表格查询`详见下表searchProps` |  object  |             `null`             |
-| pageRequest   | 页码与每页条数                |  object  |    `{page: 1,pageSize: 10}`    |
-| pageSizes     | 每页显示个数选择器的选项设置  | number[] | ` [10, 20, 50, 100, 200, 500]` |
+| 参数          | 说明                                                                                                            |   类型   |             默认值             |
+| :------------ | --------------------------------------------------------------------------------------------------------------- | :------: | :----------------------------: |
+| ...           | 支持 [el-table](https://element-plus.org/zh-CN/component/table.html#table-column-%E5%B1%9E%E6%80%A7) 的所有属性 |   ...    |              可选              |
+| requestApi    | 表格数据接口                                                                                                    |  string  |              必填              |
+| columns       | 表格字段（参见上方代码演示）                                                                                    |  array   |              必填              |
+| isMultiple    | 是否可选择多列                                                                                                  | boolean  |             `true`             |
+| indexVisible  | 是否显示序号                                                                                                    | boolean  |             `true`             |
+| isPagination  | 是否显示分页                                                                                                    | boolean  |             `true`             |
+| isOnePage     | 数据只有一页是否显示分页                                                                                        | boolean  |            `false`             |
+| initParam     | 获取数据初始化参数                                                                                              |  object  |              `{}`              |
+| formatRequest | 格式化列表接口返回数据                                                                                          | function |             `null`             |
+| searchProps   | 表格查询`详见下表searchProps`                                                                                   |  object  |             `null`             |
+| pageRequest   | 页码与每页条数                                                                                                  |  object  |    `{page: 1,pageSize: 10}`    |
+| pageSizes     | 每页显示个数选择器的选项设置                                                                                    | number[] | ` [10, 20, 50, 100, 200, 500]` |
 
 ### 筛选属性
 
@@ -267,13 +273,25 @@ const searchProps = useSearch()
 | searchItems | 表单`v3-form的form-items属性`） |     array      |  `[]`  |
 | formatQuery | 格式化查询参数                  | function(data) | `null` |
 
+## 列属性
+
+::: danger 注意
+列属性支持所有[el-table-column](https://element-plus.org/zh-CN/component/table.html#table-column-%E5%B1%9E%E6%80%A7)属性；如：type, fixed，formatter 等，独有属性如下
+:::
+
+| 参数   | 说明                         |
+| :----- | ---------------------------- |
+| render | 支持 rander，h 函数渲染      |
+| slot   | 支持插槽，常用于列中操作按钮 |
+| isImg  | 支持图片展示                 |
+
 ## 事件
 
-| 方法名      | 说明                           |    类型    |
-| :---------- | ------------------------------ | :--------: |
-| rowClick    | 点击行时触发该事件             | `Function` |
-| rowDblclick | 双击行时触发该事件             | `Function` |
-| callBack    | table 数据源变化后时触发该事件 | `Function` |
+| 方法名      | 说明                           |   类型   |
+| :---------- | ------------------------------ | :------: |
+| rowClick    | 点击行时触发该事件             | function |
+| rowDblclick | 双击行时触发该事件             | function |
+| callBack    | table 数据源变化后时触发该事件 | function |
 
 ## 插槽
 
@@ -282,3 +300,14 @@ const searchProps = useSearch()
 | headLeft    | 表格上方左侧区域（一般用于展示按钮） |
 | headRight   | 表格上方右侧区域（一般用于展示按钮） |
 | column.slot | 表格列插槽（定制化列）               |
+
+## Exposes
+
+| 属性            | 说明                 |   类型   |
+| :-------------- | -------------------- | :------: |
+| refresh         | 刷新表单(会重置页码) | function |
+| getList         | 请求表单数据         | function |
+| tableData       | 返回表单数据         |  array   |
+| searchReset     | 重置查询条件         | function |
+| resetSelections | 清空已选择行         | function |
+| setTableData    | 手动设置表格数据     | function |
