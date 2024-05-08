@@ -8,5 +8,5 @@ iconStyle：自定义样式<br />
 :::
 
 ```vue
-<v3-svg :name="data" :icon-style="iconStyle" />
+<v3-svg name="data" :icon-style="iconStyle" />
 ```

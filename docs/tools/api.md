@@ -6,7 +6,7 @@
 
 ## 参数
 
-`useRequest({})` 方法中的参数对象支持传入 axios 所有属性，也包括自定义属性，自定义属性看下面功能点
+`useRequest({})` 方法中的参数对象支持传入 axios 所有属性，也包括自定义属性，自定义属性看以下*功能点*
 
 ## 自动携带 token
 
@@ -78,7 +78,7 @@ api_account_putUser(data, { isMsg: false }).then(
   (res) => {
     //成功后的逻辑
   },
-  (error) => {
+  (rej) => {
     //失败后的逻辑
   }
 );
