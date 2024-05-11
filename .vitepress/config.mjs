@@ -95,13 +95,16 @@ export default defineConfig({
       //     link: "https://github.com/vuejs/vitepress",
       //   },
     ],
-
+    outline: {
+      level: [2, 6],
+      label: "目录",
+    },
     docFooter: {
       prev: "上一页",
       next: "下一页",
     },
     footer: {
-      copyright: "Copyright ©2024-present @huxc",
+      copyright: "©from @huxc 2024",
     },
   },
 });
