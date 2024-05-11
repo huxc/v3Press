@@ -26,7 +26,7 @@ pnpm run dev
 
 ## 包管理
 
-::: danger 注意
+::: danger 提示
 
 项目强制使用 pnpm 包管理工具。如果未安装请全局安装
 
