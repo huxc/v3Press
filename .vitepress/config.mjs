@@ -20,7 +20,7 @@ export default defineConfig({
         text: "开始",
         collapsed: false,
         items: [
-          { text: "简介", link: "/docs/start/introduce.md" },
+          { text: "简介2", link: "/docs/start/introduce.md" },
           { text: "快速上手", link: "/docs/start/index.md" },
         ],
       },
