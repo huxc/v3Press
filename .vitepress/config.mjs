@@ -20,7 +20,7 @@ export default defineConfig({
         text: "开始",
         collapsed: false,
         items: [
-          { text: "简介2", link: "/docs/start/introduce.md" },
+          { text: "简介", link: "/docs/start/introduce.md" },
           { text: "快速上手", link: "/docs/start/index.md" },
         ],
       },
@@ -60,20 +60,24 @@ export default defineConfig({
         ],
       },
       {
-        text: "工具",
+        text: "工具箱",
         collapsed: false,
         items: [
           { text: "常用函数", link: "/docs/tools/utils.md" },
           { text: "axios封装", link: "/docs/tools/api.md" },
           { text: "指令", link: "/docs/tools/instruct.md" },
+          { text: "v3-cli", link: "/docs/tools/v3-cli.md" },
+          { text: "v3-snippets", link: "/docs/tools/v3-snippets.md" },
         ],
       },
       {
         text: "规范",
         collapsed: false,
         items: [
-          { text: "常见规范", link: "/docs/apis/file.md" },
-          { text: "工程化工作流", link: "/docs/apis/file.md" },
+          { text: "语言规范", link: "/docs/standard/language.md" },
+          { text: "代码规范", link: "/docs/standard/common.md" },
+          { text: "Vue规范", link: "/docs/standard/vue.md" },
+          { text: "规范化配置", link: "/docs/standard/workflow.md" },
         ],
       },
       {
