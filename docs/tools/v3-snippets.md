@@ -21,18 +21,18 @@ v3-snippets 是一个适配 Vue3 模版、路由、Api 和 ES6 常用函数的 v
 
 |   关键词    |                                                                       代码片段                                                                        |
 | :---------: | :---------------------------------------------------------------------------------------------------------------------------------------------------: |
-|  v3Setup→   | `<template><div></div></template><script setup>const props = defineProps({});const emits = defineEmits();</script><style scoped lang="scss"></style>` |
-| v3Options→  |                               `<template><div></div></template><script>...</script><style lang="scss" scoped></style>`                                |
-|    vref→    |                                                                `const ref = ref(xxx);`                                                                |
-|   vprops→   |                                                     `const props = defineProps({ foo: String })`                                                      |
-|   vemits→   |                                                      `const emit = defineEmits(['...', '...'])`                                                       |
-|   vproxy→   |                                                       `const { proxy } = getCurrentInstance()`                                                        |
-|   vwatch→   |                                               `watch(xx, (newValue, oldValue) => {}, { deep: true });`                                                |
-| vcomputed→  |                                                            `const $1 = computed(() => {})`                                                            |
-| vnextTick→  |                                                                 `nextTick(() => {})`                                                                  |
-| vonMounted→ |                                                                 `onMounted(() => {})`                                                                 |
-| vonUpdated→ |                                                                 `onUpdated(() => {})`                                                                 |
-| vonUpdated→ |                                                                 `onUpdated(() => {})`                                                                 |
+|  v3setup→   | `<template><div></div></template><script setup>const props = defineProps({});const emits = defineEmits();</script><style scoped lang="scss"></style>` |
+| v3options→  |                               `<template><div></div></template><script>...</script><style lang="scss" scoped></style>`                                |
+|   v3ref→    |                                                                `const ref = ref(xxx);`                                                                |
+|  v3props→   |                                                     `const props = defineProps({ foo: String })`                                                      |
+|  v3emits→   |                                                      `const emit = defineEmits(['...', '...'])`                                                       |
+|  v3proxy→   |                                                       `const { proxy } = getCurrentInstance()`                                                        |
+|  v3watch→   |                                               `watch(xx, (newValue, oldValue) => {}, { deep: true });`                                                |
+| v3computed→ |                                                            `const $1 = computed(() => {})`                                                            |
+| v3nextTick→ |                                                                 `nextTick(() => {})`                                                                  |
+| v3Mounted→  |                                                                 `onMounted(() => {})`                                                                 |
+| v3Updated→  |                                                                 `onUpdated(() => {})`                                                                 |
+| v3Updated→  |                                                                 `onUpdated(() => {})`                                                                 |
 
 ### vue-template
 
@@ -97,3 +97,28 @@ v3-snippets 是一个适配 Vue3 模版、路由、Api 和 ES6 常用函数的 v
 |  then→ | `.then(res => {})`                             |
 | thene→ | `.then(res => {},err=>{})`                     |
 | thenc→ | `.then(res => {}).catch((err) => {});`         |
+
+### element plus
+
+|        关键词 | 代码片段                           |
+| ------------: | ---------------------------------- |
+|     v3el-btn→ | `array.forEach(currentItem => {})` |
+| v3el-btntext→ | `for(const item of object) {}`     |
+|   v3el-radio→ | `<el-radio>`                       |
+| v3el-checkbox | `<el-checkbox>`                    |
+
+### v3-admin-el
+
+开源模版项目[v3-admin-el](https://huxc.github.io/v3Press/)独有代码段
+
+|            关键词 | 代码片段                        |
+| ----------------: | ------------------------------- |
+|         v3Dialog→ | 生成命令式弹窗 Dialog           |
+|         v3Drawer→ | 生成命令式弹窗 Drawer           |
+|     v3page-hooks→ | 快捷生成 usePage                |
+|   v3search-hooks→ | 快捷生成 useSearch              |
+|      v3date-json→ | 快捷生成表单时间选择框 json     |
+|     v3input-json→ | 快捷生成表单输入框 json         |
+|     v3radio-json→ | 快捷生成表单单选框 json         |
+|    v3select-json→ | 快捷生成表单下拉选择框 json     |
+| v3daterange-json→ | 快捷生成表单时间区间选择框 json |
