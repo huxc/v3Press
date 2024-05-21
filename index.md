@@ -16,8 +16,8 @@ hero:
       link: /docs/start/introduce.md
 
     - theme: alt
-      text: 在Github上查看
-      link: https://github.com/huxc/v3-admin-el
+      text: 在GitLab上查看
+      link: http://192.168.1.223/huxiaochuan/v3-admin-el
 
 features:
   - icon: 🔥
