@@ -17,6 +17,7 @@ hero:
 
     - theme: alt
       text: 在Github上查看
+      link: https://github.com/huxc/v3-admin-el
 
 features:
   - icon: 🔥
@@ -29,8 +30,8 @@ features:
     title: 组件
     details: 提供配置式表单、表格、以及可扩展的表单元素组件
   - icon: 🛠️
-    title: 工具
-    details: axios封装 支持自动错误提示、Loading、token过期处理、文件流导出等
+    title: 工具箱
+    details: axios封装统一请求库、v3-cli脚手架工具、 vscode插件v3-snippets、以及常用函数库等
   - icon: 🔐
     title: 权限方案
     details: 提供简单的菜单、路由及按钮权限管理方案
