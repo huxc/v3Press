@@ -100,12 +100,12 @@ v3-snippets 是一个适配 Vue3 模版、路由、Api 和 ES6 常用函数的 v
 
 ### element plus
 
-|        关键词 | 代码片段                           |
-| ------------: | ---------------------------------- |
-|     v3el-btn→ | `array.forEach(currentItem => {})` |
-| v3el-btntext→ | `for(const item of object) {}`     |
-|   v3el-radio→ | `<el-radio>`                       |
-| v3el-checkbox | `<el-checkbox>`                    |
+|        关键词 | 代码片段           |
+| ------------: | ------------------ |
+|     v3el-btn→ | `<el-button>`      |
+| v3el-btntext→ | `<el-button text>` |
+|   v3el-radio→ | `<el-radio>`       |
+| v3el-checkbox | `<el-checkbox>`    |
 
 ### v3-admin-el
 
