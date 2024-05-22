@@ -15,6 +15,6 @@ module.exports = {
     webDir: "/usr/local/nginx/html/v3Press",
     bakDir: "/usr/local/nginx/html/v3Press_old",
     isRemoveRemoteFile: true,
-    isRemoveLocalFile: true,
+    isRemoveLocalFile: false,
   },
 };
