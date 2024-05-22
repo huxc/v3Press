@@ -4,13 +4,14 @@
 
 ## 初始化配置文件
 
-在根目录的 deploy.config.js 中配置相应的服务器参数。如果不想把服务器密码保存在配置文件中，也可以在配置文件中删除 password 字段。在部署的时候会弹出输入密码界面。
+在根目录的 deploy.config.js 中配置相应的服务器参数。
 
 ```js
 module.exports = {
   projectName: "v3-admin-el", // 项目名称
-  privateKey: "/Users/fuchengwei/.ssh/id_rsa",
-  passphrase: "",
+  /**此处两个字段与环境对象中的用户名密码二选一 */
+  //privateKey: "/Users/fuchengwei/.ssh/id_rsa", //本地私钥地址
+  //passphrase: "", // 地私钥密码
   readyTimeout: 20000, // 超时时间(毫秒)
   cluster: [], // 集群部署配置，要同时部署多台配置此属性如: ['dev', 'test', 'prod']
   dev: {
@@ -58,6 +59,10 @@ module.exports = {
 };
 ```
 
+::: danger 提示
+配置文件中的 `privateKey、passphrase`与`dev/test/prod`中的`username、password`字段二选一；如果不想把服务器密码保存在配置文件中，也可以在配置文件中删除 password 字段。在部署的时候会弹出输入密码界面。
+:::
+
 ## 自动部署
 
-项目无需打包，可直接执行`pnpm run deploy:test`进行部署。其中`:test`在配置文件中可自行更改
+执行`pnpm run deploy:test`进行部署。其中`:test`是环境名称，在配置文件 package.json 中可自行更改
