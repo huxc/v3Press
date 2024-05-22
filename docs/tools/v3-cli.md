@@ -1,6 +1,8 @@
 # v3admin-cli
 
-为 v3-admin-cli 模版量身打造的脚手架工具
+::: danger 提示
+v3admin-cli 是为 v3-admin-cli 模版项目量身打造的脚手架工具
+:::
 
 ## 全局安装
 

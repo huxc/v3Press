@@ -63,7 +63,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: "常用函数", link: "/docs/tools/utils.md" },
-          { text: "axios封装", link: "/docs/tools/api.md" },
+          { text: "统一请求库", link: "/docs/tools/api.md" },
           { text: "指令", link: "/docs/tools/instruct.md" },
           { text: "v3-cli", link: "/docs/tools/v3-cli.md" },
           { text: "v3-snippets", link: "/docs/tools/v3-snippets.md" },
