@@ -1,6 +1,6 @@
 # 路由配置
 
-路由统一放到`src/routers/modules`文件夹下，可使用 vscode 插件 v3-snippets 的代码段`vrouter`进行快速编码，配置格式如下：其中 permissionCode 为权限码
+路由统一放到`src/routers/modules`文件夹下，配置格式如下：其中 `permissionCode` 为权限码；vscode 插件 v3-snippets 有提供快捷代码段; 关键字`vrouter`
 
 ```js
 /**
