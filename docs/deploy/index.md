@@ -60,4 +60,4 @@ module.exports = {
 
 ## 自动部署
 
-项目打包后执行`pnpm run deploy:test`进行部署。其中`:test`在配置文件中可自行更改
+项目无需打包，可直接执行`pnpm run deploy:test`进行部署。其中`:test`在配置文件中可自行更改
