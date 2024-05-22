@@ -1,10 +1,12 @@
 {
   "devDependencies": {
+    "deploy-cli-service": "^1.4.1",
     "vitepress": "^1.1.3"
   },
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:preview": "vitepress preview",
+    "deploy:dev": "deploy-cli-service deploy --mode dev"
   }
 }
