@@ -1,7 +1,5 @@
 # Vite 中环境变量的配置
 
-此模版项目未使用.env 配置文件，开发过程中如需要使用可自行配置
-
 ## 设置.env 中的内容信息
 
 vue3 + vite 必须使用 VITE 开头的配置信息 否则无法获取
@@ -21,6 +19,10 @@ export default defineConfig({
   envPrefix: "APP_", //APP_  为自定义开头名
 });
 ```
+
+::: danger 注意
+此模版项目未使用.env 配置文件，开发过程中如需要使用可自行配置
+:::
 
 ## vite 中使用环境变量 import.meta.env
 
@@ -51,4 +53,23 @@ console.log(import.meta.env); //查看相关信息 这里不显示非VITE开头�
     "pro": "vite --mode pro",   // 取 .env.pro文件中的配置
 },
 
+```
+
+我们的服务端微服务域名配置`src/api/config/domainConfig.js` 就是使用的 package.json 中配置模式，如上代码`--mode development`设置为 `development`,则`import.meta.env.MODE`的值就是`development`
+如：
+
+```js
+const hosts = {
+  test: "", // 测试环境地址
+  production: "", // 生产环境地址 运行 pnpm run prod
+  development: "https://mock.apifox.com/m1/4483965-4130611-default", // 开发环境地址
+};
+const host = hosts[import.meta.env.MODE];
+
+export const domain_list = {
+  system: `${host}/system`,
+  account: `${host}/account`,
+};
+
+//此处的 domain_list.system = https://mock.apifox.com/m1/4483965-4130611-default/system
 ```
