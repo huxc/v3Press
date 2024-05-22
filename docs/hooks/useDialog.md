@@ -2,7 +2,7 @@
 
 ::: info 命令式弹窗
 
-以 js 的方式调用弹窗组件。无需 import 可直接使用。在一个页面有多个弹窗的情况下，减少了`el-dialog`的多个 `v-model` 的定义与维护
+以 js 的方式调用弹窗组件。无需 import 可直接使用。在一个页面有多个弹窗的情况下，减少了`el-dialog`的多个 `v-model` 的定义与维护；vscode 插件 v3-snippets 有提供快捷代码段
 
 :::
 
