@@ -243,9 +243,9 @@ const tableRef = ref()
 const searchProps = useSearch()
 ```
 
-::: info Tip
-查询条件是利用`v3-form`组件，详细参数查看[v3-form](/docs/components/form.md)节点
-:::
+### 可折叠搜索框
+
+`searchProps`传入`collapse`为`true`开启折叠功能。`defaultOver`属性配置是否默认展开；详见下表[searchProps](#筛选属性)
 
 ## 属性
 
@@ -266,12 +266,12 @@ const searchProps = useSearch()
 
 ### 筛选属性
 
-| 参数        | 说明                            |      类型      | 默认值 |
-| :---------- | ------------------------------- | :------------: | :----: |
-| submitMsg   | 查询按钮名称                    |     string     |  查询  |
-| resetMsg    | 重置按钮名称                    |     array      |  重置  |
-| searchItems | 表单`v3-form的form-items属性`） |     array      |  `[]`  |
-| formatQuery | 格式化查询参数                  | function(data) | `null` |
+| 参数        | 说明                                      |      类型      | 默认值  |
+| :---------- | ----------------------------------------- | :------------: | :-----: |
+| collapse    | 是否开启折叠功能                          |    boolean     | `false` |
+| defaultOver | collapse 为 true 生效，搜索栏默认是否折叠 |    boolean     | `true`  |
+| formItems   | 查询表单（数组 json）                     |     array      |  `[]`   |
+| formatQuery | 格式化查询参数                            | function(data) | `null`  |
 
 ## 列属性
 

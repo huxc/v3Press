@@ -2,7 +2,7 @@
 
 ::: info 命令式抽屉
 
-以 js 的方式调用抽屉组件（与 useDialog 使用类似）无需 import 可直接使用。
+以 js 的方式调用抽屉组件（与 useDialog 使用类似）无需 import 可直接使用。vscode 插件 v3-snippets 有提供快捷代码段
 
 :::
 
