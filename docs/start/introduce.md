@@ -4,7 +4,7 @@
 v3-admin-el 一款基于 Vue3.4、Vite5、Pinia、Element-Plus 后台管理框架模版，使用目前(2024)最新技术栈开发。对表格、表单进行了可配置(json)封装，同时加入常用全局 hooks,如：命令式弹窗、命令式抽屉、列表分页查询等。大幅提升后台管理系统的效率和质量。另外本项目还封装了一些常用工具如：常用函数、统一请求库、 指令、权限控制、脚手架工具(v3-cli)、vscode 插件(v3-snippets)、自动化部署等功能。
 :::
 
-## 详细目录介绍
+## 目录结构
 
 ```js
 ├─.husky   // Git hooks工具，通过通过钩子控制代码质量
@@ -49,7 +49,7 @@ v3-admin-el 一款基于 Vue3.4、Vite5、Pinia、Element-Plus 后台管理框�
     │  └─modules // 多种类状态
     ├─styles  // 全局样式
     │  └─element
-    ├─utils  // 工具集
+    ├─utils  // 工具集（尽量存放纯函数）
     └─views  // 开发的所有页面放这
         ├─error // 错误页面
         ├─home  // 首页

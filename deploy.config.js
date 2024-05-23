@@ -1,0 +1,20 @@
+module.exports = {
+  projectName: "v3Press",
+  //   privateKey: "C:/Users/Administrator/.ssh/id_rsa",
+  //   passphrase: "",
+  readyTimeout: 20000,
+  cluster: [],
+  dev: {
+    name: "测试环境",
+    script: "npm run docs:build",
+    host: "180.100.200.14",
+    port: 22,
+    username: "root",
+    password: "WYJczjky.com22",
+    distPath: ".vitepress/dist",
+    webDir: "/usr/local/nginx/html/v3Press",
+    bakDir: "/usr/local/nginx/html/v3Press_old",
+    isRemoveRemoteFile: true,
+    isRemoveLocalFile: false,
+  },
+};
