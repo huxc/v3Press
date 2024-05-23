@@ -168,4 +168,4 @@ nextTick(() => {
 
 ### v3-snippets
 
-这个是我提交的 vscode 插件，里面是我常用的代码段和为 v3-admin-el 专用的代码段，可提高开发效率
+这个插件有为 v3-admin-el 提供专用的代码段
