@@ -165,3 +165,7 @@ nextTick(() => {
 ### ESLint、Prettier
 
 模版项目格式化依赖 eslint 插件，需要安装 3+版本,`.css .scss .html`部分依赖 Prettier 插件
+
+### v3-snippets
+
+这个插件有为 v3-admin-el 提供专用的代码段
