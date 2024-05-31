@@ -69,16 +69,16 @@ export default defineConfig({
           { text: "v3-snippets", link: "/docs/tools/v3-snippets.md" },
         ],
       },
-      {
-        text: "规范",
-        collapsed: false,
-        items: [
-          { text: "语言规范", link: "/docs/standard/language.md" },
-          { text: "代码规范", link: "/docs/standard/common.md" },
-          { text: "Vue规范", link: "/docs/standard/vue.md" },
-          { text: "规范化配置", link: "/docs/standard/workflow.md" },
-        ],
-      },
+    //   {
+    //     text: "规范",
+    //     collapsed: false,
+    //     items: [
+    //       { text: "语言规范", link: "/docs/standard/language.md" },
+    //       { text: "代码规范", link: "/docs/standard/common.md" },
+    //       { text: "Vue规范", link: "/docs/standard/vue.md" },
+    //       { text: "规范化配置", link: "/docs/standard/workflow.md" },
+    //     ],
+    //   },
       {
         text: "部署",
         collapsed: false,
