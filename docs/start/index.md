@@ -37,11 +37,6 @@ v3-cli create <project-name>
 :::
 ![图片](/imgs/cmd.png)
 
-::: danger 提示
-**推荐** 使用脚手架进行项目初始化，除了可以安装包之外还可以初始化 git、eslint 并且自动在 vscode 中打开
-:::
-![图片](/imgs/cmd.png)
-
 ### github 地址
 
 ```js
