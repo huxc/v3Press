@@ -10,7 +10,6 @@ module.exports = {
     host: "180.100.200.14",
     port: 22,
     username: "root",
-    password: "WYJczjky.com22",
     distPath: ".vitepress/dist",
     webDir: "/usr/local/nginx/html/v3Press",
     bakDir: "/usr/local/nginx/html/v3Press_old",
