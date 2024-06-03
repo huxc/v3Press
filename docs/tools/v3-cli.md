@@ -113,7 +113,11 @@ export default {
 
 ## 生成 views
 
-### 生成 views
+```js
+v3-cli views  // 读取配置文件路径
+```
+
+### 生成路由对应的 .vue 文件
 
 默认读取根目录的配置文件 v3.config.js 中的 router 对象
 
