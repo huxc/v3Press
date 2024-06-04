@@ -107,7 +107,7 @@ export default defineConfig({
       next: "下一页",
     },
     footer: {
-      copyright: "©from @huxc 2024",
+      copyright: "©from 胡校川 2024",
     },
   },
 });
