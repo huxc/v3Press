@@ -19,6 +19,10 @@ hero:
       text: 在Github上查看
       link: https://github.com/huxc/v3-admin-el
 
+    - theme: brand
+      text: uniapp模版框架
+      link: https://huxc.github.io/v3-uni-doc/
+
 features:
   - icon: 🔥
     title: 技术栈
