@@ -15,7 +15,7 @@ export default defineConfig({
     },
     logo: "/svg/logo.svg",
     nav: [
-        { text: "uni-dove", link: "https://huxc.github.io/v3Press/" },
+        { text: "uni-dove", link: "https://huxc.github.io/v3-uni-doc/" },
         { text: "vue", link: "https://cn.vuejs.org/" },
         { text: "element-plus", link: "https://element-plus.org/zh-CN/#/zh-CN" },
         { text: "v1.0.0",link: "" },
