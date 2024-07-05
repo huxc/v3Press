@@ -15,12 +15,12 @@ hero:
       link: /md/start/introduce.md
 
     - theme: alt
-      text: 在Github上查看
-      link: https://github.com/huxc/v3-admin-el
+      text: 在GitLab上查看
+      link: http://192.168.1.223/huxiaochuan/v3-admin-el
 
     - theme: brand
       text: uni-app 模版框架
-      link: https://huxc.github.io/v3-uni-doc/
+      link: http://180.100.200.14/uni/
 
 features:
   - icon: <span class="i-mdi:lightning-bolt-outline"></span>
