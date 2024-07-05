@@ -10,7 +10,7 @@
 
 ### 编写接口
 
-所有请求接口都要定义在`src/api/modules`中，当然也可以根据 [v3-cli](/docs/tools/v3-cli.md) 脚手架自动生成。如：
+所有请求接口都要定义在`src/api/modules`中，当然也可以根据 [v3-cli](/md/tools/v3-cli.md) 脚手架自动生成。如：
 
 ```js
 // src/api/modules/account.js

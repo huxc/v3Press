@@ -83,9 +83,9 @@ onMounted(() => {
 
 ## 插槽
 
-在现有组件无法满足表单需求时，可使用插槽或[扩展组件](/docs/components/formItem.md)
+在现有组件无法满足表单需求时，可使用插槽或[扩展组件](/md/components/formItem.md)
 ::: warning 建议
-优先推荐[扩展组件](/docs/components/formItem.md)，可复用，有利于维护
+优先推荐[扩展组件](/md/components/formItem.md)，可复用，有利于维护
 :::
 
 ```js
@@ -162,7 +162,7 @@ function onSave() {
 
 ## 结合弹窗组件的表单
 
-[弹窗](/docs/hooks/useDialog.md)或[抽屉](/docs/hooks/useDrawer.md)的形式进行表单编辑
+[弹窗](/md/hooks/useDialog.md)或[抽屉](/md/hooks/useDrawer.md)的形式进行表单编辑
 
 ```js
 //hooks/useForm
