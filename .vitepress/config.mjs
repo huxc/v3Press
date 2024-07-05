@@ -15,7 +15,7 @@ export default defineConfig({
     },
     logo: "/svg/logo.svg",
     nav: [
-        { text: "uni-dove", link: "http://180.100.200.14/uni/" },
+        { text: "v3-uni-template", link: "http://180.100.200.14/uni/" },
         { text: "vue", link: "https://cn.vuejs.org/" },
         { text: "element-plus", link: "https://element-plus.org/zh-CN/#/zh-CN" },
         { text: "v1.0.0",link: "" },
