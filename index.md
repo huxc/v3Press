@@ -7,7 +7,7 @@ hero:
   name: "v3-admin-el"
   tagline: 一个轻量、易用的中后台模版
   image:
-    src: /svg/logo.svg
+    src: /imgs/logo.png
     alt: CAPress
   actions:
     - theme: brand

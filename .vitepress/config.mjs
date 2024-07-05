@@ -5,7 +5,7 @@ export default defineConfig({
   base: "/v3Press/",
   title: "v3-admin-el",
   titleTemplate: " v3-admin-el",
-  head: [["link", { rel: "icon", href: "/v3Press/svg/logo.svg" }]],
+  head: [["link", { rel: "icon", href: "/v3Press/imgs/logo.png" }]],
   description: "v3-admin-el 文档",
   lang: "zh-CH",
   themeConfig: {
@@ -13,7 +13,7 @@ export default defineConfig({
     search: {
       provider: "local",
     },
-    logo: "/svg/logo.svg",
+    logo: "/imgs/logo.png",
     nav: [
         { text: "v3-uni-template", link: "http://180.100.200.14/uni/" },
         { text: "vue", link: "https://cn.vuejs.org/" },
