@@ -56,6 +56,6 @@ features:
   - icon: <span class="i-ph:warning-bold"></span>
     title: 规范
     details: 配置 Eslint、Prettier、Husky、Commitlint、Lint-staged 规范前端工程代码规范
-    link: https://vitejs.dev
-    linkText: Vite
+    link: /md/standard/workflow.md
+    linkText: workflow
 ---

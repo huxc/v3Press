@@ -75,6 +75,16 @@ export default defineConfig({
         ],
       },
       {
+        text: "规范",
+        collapsed: false,
+        items: [
+          { text: "编码规范", link: "/md/standard/language.md" },
+          { text: "Vue规范", link: "/md/standard/vue.md" },
+          { text: "统一代码风格", link: "/md/standard/common.md" },
+          { text: "规范化配置", link: "/md/standard/workflow.md" },
+        ],
+      },
+      {
         text: "部署",
         collapsed: false,
         items: [
