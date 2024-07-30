@@ -111,7 +111,7 @@ export default defineConfig({
       next: "下一页",
     },
     footer: {
-        copyright: "author: 胡校川 2024",
+        copyright: "Author: 胡校川 2024",
     },
   },
 });

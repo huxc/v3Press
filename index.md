@@ -15,7 +15,7 @@ hero:
       link: /md/start/introduce.md
 
     - theme: alt
-      text: 在GitLab上查看
+      text: 在GitLab上查看 
       link: http://192.168.1.223/huxiaochuan/v3-admin-el
 
     - theme: brand
