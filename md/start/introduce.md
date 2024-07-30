@@ -1,5 +1,7 @@
 # 简介
 
+<img src="https://komarev.com/ghpvc/?username=huxc&label=Views&color=orange&style=flat" alt="访问量统计" />
+
 `v3-admin-el` 一款基于 `Vue3.4` + `Vite5` + `Pinia` + `Element-Plus` 后台管理框架模版，使用目前(2024)最新技术栈开发。对表格、表单进行了可配置(json)封装，同时加入常用全局 `hooks`,如：`命令式弹窗`、`命令式抽屉`、`列表分页查询`等。大幅提升后台管理系统的效率和质量。<br/><br/>项目内置了一些常用工具如：`常用函数`、 `指令`、`权限控制`、`自动格式化`、`layout布局`、`请求封装`、`请求拦截`、`登录拦截`、`统一配置`、`自动化部署`等；<br/><br/>`v3-cli`是为`v3-admin-el`量身定制的脚手架工具，包含：`创建/初始化项目`、`根据swagger生成接口`、`根据路由生成Page`;<br/><br/>`v3-snippets` 是`vscode`插件，除了常用代码段之外还有`v3-admin-el`特有代码段。
 
 ## 目录结构
