@@ -1,75 +1,62 @@
-# Vite 中环境变量的配置
+# 环境变量
 
-## 设置.env 中的内容信息
+在 `Vite` 中，环境变量的使用是通过 `.env` 文件以及在代码中访问这些变量来实现
 
-vue3 + vite 必须使用 VITE 开头的配置信息 否则无法获取
+## 定义环境变量
+你可以在你的项目根目录 `/env` 中放置下列文件来指定环境变量：
 
-```
-NODE_ENV = "env"
-VITE_NODE_ENV = "env"	//VITE开头的给vue3+vite使用
-
-```
-
-如果不想使用 VITE 开头自己修改就在 vite.config.js 文件中添加 envPrefix:“APP\_
-
-```js
-//vite.config.js
-export default defineConfig({
-  plugins: [vue()],
-  envPrefix: "APP_", //APP_  为自定义开头名
-});
+```sh
+.env                # 在所有的环境中被载入
+.env.local          # 在所有的环境中被载入，但会被 git 忽略
+.env.[mode]         # 只在指定的模式中被载入
+.env.[mode].local   # 只在指定的模式中被载入，但会被 git 忽略
 ```
 
-::: danger 注意
-此模版项目未使用.env 配置文件，开发过程中如需要使用可自行配置
-:::
+## 优先级
 
-## vite 中使用环境变量 import.meta.env
+在加载环境变量时，`Vite` 会按照以下优先级从高到低加载：
 
-有四种环境变量，如下所示：
+```sh
+.env.local
+.env.[mode].local   # 如 .env.development.local、.env.production.local
+.env.[mode]         # 如 .env.development、.env.production
+.env
 
-- MODE，用来指明现在所处于的模式，一般通过它进行不同环境的区分，比如 dev、test、pre、prd 等等，默认为：“development”
-- BASE_URL，用来请求静态资源初始的 url
-- PROD，用来判断当前环境是否是正式环境
-- DEV，开发环境
+```
+
+示例内容：
+
+```env
+# token 过期状态码
+VITE_ACCESS_TOKEN_EXP = 401
+
+# 微服务的 BaseUrl（多服务配置）
+VITE_API_DOMAIN_JSON = '{
+  "basics": "http://172.16.164.37:3001/basics",
+  "xxxx": "http://172.16.164.37:3000/xxxx"
+}'
+```
 
 ## 使用环境变量
 
-使用 import.meta.env.VITE_NODE_ENV 获取环境变量
+::: danger 提示
+`import.meta.env` 读取环境变量默认都是字符串，模版项目已经帮助你自动转换变量类型。可直接使用值
+:::
+
+在 `Vite` 中，环境变量需要以 `VITE\_ `开头。你可以通过 `import.meta.env` 访问这些变量。例如：
 
 ```js
-console.log(import.meta.env); //查看相关信息 这里不显示非VITE开头的变量
+console.log(import.meta.env.VITE_MPWX_APPID);
+console.log(import.meta.env.VITE_API_DOMAIN_JSON);
 ```
 
-## 在 package.json 中配置模式
-
-上面使用的时候是固定写法 需要切换.env 和 .env.pro 中不同的变量信息
-在打包中配置 如下：
-使用 --mode pro 进行设置
-
-```json
-"scripts": {
-    "dev": "vite --mode dev",   // 取 .env.dev文件中的配置
-    "pro": "vite --mode pro",   // 取 .env.pro文件中的配置
-},
-
-```
-
-我们的服务端微服务域名配置`src/api/config/domainConfig.js` 就是使用的 package.json 中配置模式，如上代码`--mode development`设置为 `development`,则`import.meta.env.MODE`的值就是`development`
-如：
+示例内容：
 
 ```js
-const hosts = {
-  test: "", // 测试环境地址
-  production: "", // 生产环境地址 运行 pnpm run prod
-  development: "https://mock.apifox.com/m1/4483965-4130611-default", // 开发环境地址
-};
-const host = hosts[import.meta.env.MODE];
+const json = import.meta.env.VITE_API_DOMAIN_JSON;
+const basics = json.basics;
 
-export const domain_list = {
-  system: `${host}/system`,
-  account: `${host}/account`,
-};
+// or
 
-//此处的 domain_list.system = https://mock.apifox.com/m1/4483965-4130611-default/system
+import.meta.env.VITE_API_DOMAIN_JSON.basics;
 ```

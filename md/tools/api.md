@@ -1,5 +1,9 @@
 # 统一请求库
 
+::: danger 提示
+代码分支`v2.0`已将`axios`切换为`ofetch`建议使用此分支
+:::
+
 设计初衷，封装具有统一错误处理、减少代码冗余、抹平风格差异、降低文档负担、优化代码提示等功能的统一请求库
 
 ## 统一请求
@@ -48,7 +52,10 @@ export function getAuths(data, prop = {}) {
 
 ### 调用接口
 
-接口的调用，已做了全局处理都是按需引入，减少打包体积。只需`api_`加上文件名称，`api_account_`再加上函数名称`api_account_login`即可调用，无需 import 可直接在任何 js、vue 文件中使用；如：
+::: danger 提示
+接口的调用，已做了全局处理都是按需引入，减少打包体积。只需`api_`加上文件名称，`api_account_`再加上函数名称`api_account_login`即可调用，无需 import 可直接在任何 js、vue 文件中使用
+:::
+使用实例：
 
 ```js
 // 函数都是以Promise返回
