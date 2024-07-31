@@ -1,1 +1,0 @@
-import{_ as s,c as i,o as a,a4 as n}from"./chunks/framework.DzywJFVC.js";const c=JSON.parse('{"title":"统一请求库","description":"","frontmatter":{},"headers":[],"relativePath":"md/tools/api.md","filePath":"md/tools/api.md"}'),h={name:"md/tools/api.md"},p=n("",43),l=[p];function t(k,e,E,r,d,g){return a(),i("div",null,l)}const y=s(h,[["render",t]]);export{c as __pageData,y as default};
