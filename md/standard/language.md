@@ -136,89 +136,6 @@ const obj = {
 };
 ```
 
-- 请使用对象方法的简写方式，eslint: [object-shorthand](https://eslint.org/docs/rules/object-shorthand.html)
-
-  ```js
-  // bad
-  const item = {
-    value: 1,
-
-    addValue: function (val) {
-      return item.value + val
-    }
-  }
-
-  // good
-  const item = {
-    value: 1,
-
-    addValue (val) {
-      return item.value + val
-    }
-  }
-  ```
-
-- 请使用对象属性值的简写方式，eslint: [object-shorthand](https://eslint.org/docs/rules/object-shorthand.html)
-> 原因：这样更简短且描述更清楚
-
-  ```js
-  const job = 'FrontEnd'
-
-  // bad
-  const item = {
-    job: job
-  }
-
-  // good
-  const item = {
-    job
-  }
-  ```
-
-- 将简写的对象属性分组后统一放到对象声明的开头
-
-> 原因：这样更容易区分哪些属性用了简写的方式
-
-  ```js
-  const job = 'FrontEnd'
-  const department = 'JDC'
-
-  // bad
-  const item = {
-    sex: 'male',
-    job,
-    age: 25,
-    department
-  }
-
-  // good
-  const item = {
-    job,
-    department,
-    sex: 'male',
-    age: 25
-  }
-  ```
-
-- 只对非法标识符的属性使用引号，eslint: [quote-props](https://eslint.org/docs/rules/quote-props.html)
-
-> 原因：因为通常来说我们认为这样主观上会更容易阅读，这样会带来代码高亮上的提升，同时也更容易被主流 JS 引擎优化
-
-```js
-// bad
-const bad = {
-  'foo': 3,
-  'bar': 4,
-  'data-blah': 5
-}
-
-// good
-const good = {
-  foo: 3,
-  bar: 4,
-  'data-blah': 5
-}
-```
 
 - 不要直接使用 `Object.prototype` 的方法, 例如 `hasOwnProperty`, `propertyIsEnumerable` 和 `isPrototypeOf` 方法，eslint: [no-prototype-builtins](https://eslint.org/docs/rules/no-prototype-builtins)
 > 原因：这些方法可能会被对象自身的同名属性覆盖 - 比如 `{ hasOwnProperty: false }` 或者对象可能是一个 `null` 对象(`Object.create(null)`)
@@ -270,36 +187,6 @@ const { a, ...noA } = copy // noA => { b: 2, c: 3 }
   const items = []
   ```
 
-- 向数组中添加元素时，请使用 `push` 方法
-
-  ```js
-  const items = []
-
-  // bad
-  items[items.length] = 'test'
-
-  // good
-  items.push('test')
-  ```
-
-- 使用展开运算符 `...` 复制数组
-
-  ```js
-  // bad
-  const items = []
-  const itemsCopy = []
-  const len = items.length
-  let i
-
-  // bad
-  for (i = 0; i < len; i++) {
-    itemsCopy[i] = items[i]
-  }
-
-  // good
-  itemsCopy = [...items]
-  ```
-
 - 把一个可迭代的对象转换为数组时，使用展开运算符 `...` 而不是 `Array.from`
 
 ```js
@@ -311,29 +198,6 @@ const nodes = Array.from(foo)
 // best
 const nodes = [...foo]
 ```
-
-- 使用 `Array.from` 来将一个类数组对象转换为数组
-
-```js
-const arrLike = { 0: 'foo', 1: 'bar', 2: 'baz', length: 3 }
-
-// bad
-const arr = Array.prototype.slice.call(arrLike)
-
-// good
-const arr = Array.from(arrLike)
-```
-
-- 遍历迭代器进行映射时使用 `Array.from` 代替扩展运算符 `...`, 因为这可以避免创建中间数组
-
-```js
-// bad
-const baz = [...foo].map(bar)
-
-// good
-const baz = Array.from(foo, bar)
-```
-
 
 - 使用数组的 `map` 等方法时，请使用 `return` 声明，如果是单一声明语句的情况，可省略 `return`
 
@@ -460,27 +324,6 @@ const numberInArray = [
   const [first, second] = arr
   ```
 
-- 函数需要回传多个值时，请使用对象的解构，而不是数组的解构
-
-> 原因：可以非破坏性地随时增加或者改变属性顺序
-
-  ```js
-  // bad
-  function doSomething () {
-    return [top, right, bottom, left]
-  }
-
-  // 如果是数组解构，那么在调用时就需要考虑数据的顺序
-  const [top, xx, xxx, left] = doSomething()
-
-  // good
-  function doSomething () {
-    return { top, right, bottom, left }
-  }
-
-  // 此时不需要考虑数据的顺序
-  const { top, left } = doSomething()
-  ```
 
 ### 字符串
 
@@ -492,14 +335,6 @@ const numberInArray = [
 
   // good
   const department = 'JDC'
-  ```
-
-- 字符串太长的时候，请不要使用字符串连接符换行 `\`，而是使用 `+`
-
-  ```js
-  const str = '凹凸实验室 凹凸实验室 凹凸实验室' +
-    '凹凸实验室 凹凸实验室 凹凸实验室' +
-    '凹凸实验室 凹凸实验室'
   ```
 
 - 程序化生成字符串时，请使用模板字符串，eslint: [prefer-template](http://eslint.org/docs/rules/prefer-template.html) [template-curly-spacing](https://eslint.org/docs/rules/template-curly-spacing)
@@ -532,82 +367,6 @@ const foo = `my name is '${name}'`
 
 ### 函数
 
-- 不要使用Function构造函数创建函数， eslint: [no-new-func](https://eslint.org/docs/rules/no-new-func)
-
-> 原因：此方式创建函数和对字符串使用 `eval()` 一样会产生漏洞
-
-```js
-// bad
-const add = new Function('a', 'b', 'return a + b')
-
-// still bad
-const subtract = Function('a', 'b', 'return a - b')
-```
-
-- 在函数签名中使用空格，eslint: [space-before-function-paren](https://eslint.org/docs/rules/space-before-function-paren) [space-before-blocks](https://eslint.org/docs/rules/space-before-blocks)
-
-```js
-const f = function(){}
-const g = function (){}
-const h = function() {}
-
-// good
-const x = function b () {}
-const y = function a () {}
-```
-
-- 使用具名函数表达式而非函数声明，eslint: [func-style](http://eslint.org/docs/rules/func-style)
-
-> 原因：这样做会导致函数声明被提升，这意味着很容易在文件中定义此函数之前引用它，不利于可读性和可维护性。如果你发现函数定义既庞大又复杂以至于不能理解文件的其他部分，或许你应该将它拆分成模块！别忘记要显式命名表达式，而不用管名字是否是从包含的变量（通常出现在现代浏览器中或者使用 Babel 编译器的时候）中推断的。这样会消除错误调用堆栈中的任何假设。 (讨论)
-
-```js
-// bad
-function foo () {
-  // ...
-}
-
-// bad
-const foo = function () {
-  // ...
-}
-
-// good
-// lexical name distinguished from the variable-referenced invocation(s)
-const short = function longUniqueMoreDescriptiveLexicalFoo () {
-  // ...
-}
-```
-
-- 用圆括号包裹自执行匿名函数，eslint：[wrap-iife](http://eslint.org/docs/rules/wrap-iife.html)
-
-> 原因：一个立即执行匿名函数表达式是一个单一的单元，将其及其调用括号包装在括号中，能够清楚地表达这一点。注意，在到处都是模块的世界中几乎不需要 IIFE。
-
-```js
-// immediately-invoked function expression (IIFE)
-(function () {
-  console.log('Welcome to the Internet. Please follow me.')
-}())
-```
-
-- 不要在非函数代码块（`if` , `while` 等）中声明函数，eslint：[no-loop-func](http://eslint.org/docs/rules/no-loop-func.html)
-
-  ```js
-  // bad
-  if (isUse) {
-    function test () {
-      // do something
-    }
-  }
-
-  // good
-  let test
-  if (isUse) {
-    test = () => {
-      // do something
-    }
-  }
-  ```
-
 - 不要将参数命名为 `arguments`，会导致该参数的优先级高于每个函数作用域内原先存在的 `arguments` 对象
 
 ```js
@@ -622,22 +381,6 @@ function foo (name, options, args) {
 }
 ```
 
-- 不要使用 `arguments`，使用 剩余运算符 `...`
-
-  > `arguments` 只是一个类数组，而 `...` 是一个真正的数组
-
-  ```js
-  // bad
-  function test () {
-    const args = Array.prototype.slice.call(arguments)
-    return args.join('')
-  }
-
-  // good
-  function test (...args) {
-    return args.join('')
-  }
-  ```
 
 - 使用参数默认值语法而不是修改函数参数
 
@@ -693,65 +436,6 @@ function handleThings (name, opts = {}) {
 }
 ```
 
-- 不要更改参数，eslint: [no-param-reassign](https://eslint.org/docs/rules/no-param-reassign.html)
-
-> 原因：操作作为参数传入的对象可能在原始调用中造成意想不到的变量副作用
-
-```js
-// bad
-function f1 (obj) {
-  obj.key = 1
-}
-
-// good
-function f2 (obj) {
-  const key = Object.prototype.hasOwnProperty.call(obj, 'key') ? obj.key : 1
-}
-```
-
-- 不要给参数重新赋值，eslint: [no-param-reassign](https://eslint.org/docs/rules/no-param-reassign.html)
-
-> 原因：参数重新赋值可能会导致无法预期的行为，尤其是当操作 `arguments` 对象时，也可能导致优化问题，尤其是在 V8 引擎中
-
-```js
-// bad
-function f1 (a) {
-  a = 1
-}
-
-function f2 (a) {
-  if (!a) { a = 1 }
-}
-
-// good
-function f3 (a) {
-  const b = a || 1
-}
-
-function f4 (a = 1) {
-}
-```
-
-- 调用可变参数函数时建议使用展开运算符 `....`， eslint: [prefer-spread](http://eslint.org/docs/rules/prefer-spread)
-
-> 原因：显然你无需使用上下文，很难结合 `new` 和 `apply`
-
-```js
-// bad
-const x = [1, 2, 3, 4, 5]
-console.log.apply(console, x)
-
-// good
-const x = [1, 2, 3, 4, 5]
-console.log(...x)
-
-// bad
-new (Function.prototype.bind.apply(Date, [null, 2016, 8, 5]))
-
-// good
-new Date(...[2016, 8, 5])
-```
-
 ### 箭头函数
 
 - 当你必须使用函数表达式（传递匿名函数）时，使用箭头函数标记. eslint: [prefer-arrow-callback](http://eslint.org/docs/rules/prefer-arrow-callback.html), [arrow-spacing](https://eslint.org/docs/rules/arrow-spacing.html)
@@ -774,47 +458,6 @@ new Date(...[2016, 8, 5])
 })
 ```
 
-- 如果函数体只包含一条没有副作用的返回表达式的语句，可以省略花括号并使用隐式的 `return`， 否则保留花括号并使用 `return` 语句，eslint: [arrow-parens](https://eslint.org/docs/rules/arrow-parens.html), [arrow-body-style](https://eslint.org/docs/rules/arrow-body-style.html)
-
-```js
-// bad
-[1, 2, 3].map(number => {
-  const nextNumber = number + 1
-  `A string containing the ${nextNumber}.`
-})
-
-// good
-[1, 2, 3].map(number => `A string containing the ${number}.`)
-
-// good
-[1, 2, 3].map((number) => {
-  const nextNumber = number + 1
-  return `A string containing the ${nextNumber}.`
-})
-
-// good
-[1, 2, 3].map((number, index) => ({
-  index: number
-}))
-
-// No implicit return with side effects
-function foo(callback) {
-  const val = callback()
-  if (val === true) {
-    // Do something if callback returns true
-  }
-}
-
-let bool = false
-
-// bad
-foo(() => bool = true)
-
-// good
-foo(() => {
-  bool = true
-})
-```
 
 - 一旦表达式跨多行，使用圆括号包裹以便更好阅读
 
@@ -835,113 +478,8 @@ foo(() => {
 ))
 ```
 
-- 函数如果只接收一个参数并且没使用用花括号，则省略圆括号，否则为了清晰明确则使用圆括号包裹参数，注意：总是使用圆括号也是可以接受的，eslint 中的 ["always" 选项](https://eslint.org/docs/rules/arrow-parens#always)，eslint: [arrow-parens](http://eslint.org/docs/rules/arrow-parens.html)
-
-```js
-// bad
-[1, 2, 3].map((x) => x * x)
-
-// good
-[1, 2, 3].map(x => x * x)
-
-// good
-[1, 2, 3].map(number => (
-  `A long string with the ${number}. It’s so long that we’ve broken it ` +
-  'over multiple lines!'
-))
-
-// bad
-[1, 2, 3].map(x => {
-  const y = x + 1
-  return x * y
-})
-
-// good
-[1, 2, 3].map((x) => {
-  const y = x + 1
-  return x * y
-})
-```
 
 ### 类&构造函数
-
-- 使用 `class`，避免直接操作 `prototype`
-
-  ```js
-  // bad
-  function Queue (contents = []) {
-    this._queue = [..contents]
-  }
-  Queue.prototype.pop = function () {
-    const value = this._queue[0]
-    this._queue.splice(0, 1)
-    return value
-  }
-
-  // good
-  class Queue {
-    constructor (contents = []) {
-      this._queue = [...contents]
-    }
-
-    pop () {
-      const value = this._queue[0]
-      this._queue.splice(0, 1)
-      return value
-    }
-  }
-  ```
-
-- 使用 `extends` 来实现继承
-
-> 原因：这是一个不会破坏 `instanceof` 的内建实现原型式继承的方式
-
-```js
-// bad
-const inherits = require('inherits')
-function PeekableQueue(contents) {
-  Queue.apply(this, contents)
-}
-inherits(PeekableQueue, Queue)
-PeekableQueue.prototype.peek = function () {
-  return this.queue[0]
-}
-
-// good
-class PeekableQueue extends Queue {
-  peek () {
-    return this.queue[0]
-  }
-}
-```
-
-- 如果未声明构造函数，则类会有一个默认的构造函数，没必要用空的构造函数或者将其委托给父类，eslint: [no-useless-constructor](http://eslint.org/docs/rules/no-useless-constructor)
-
-```js
-// bad
-class Jedi {
-  constructor () {}
-
-  getName() {
-    return this.name
-  }
-}
-
-// bad
-class Rey extends Jedi {
-  constructor (...args) {
-    super(...args)
-  }
-}
-
-// good
-class Rey extends Jedi {
-  constructor (...args) {
-    super(...args)
-    this.name = 'Rey'
-  }
-}
-```
 
 - 避免类成员重复，eslint: [no-dupe-class-members](https://eslint.org/docs/rules/no-dupe-class-members)
 
@@ -985,15 +523,6 @@ class Foo {
   export default Util
   ```
 
-- 不要使用 `import` 的通配符 `*`，这样可以确保你只有一个默认的 export
-
-  ```js
-  // bad
-  import * as Util from './util'
-
-  // good
-  import Util from './util'
-  ```
 
 - 同个文件每个模块只允许 `import` 一次，有多个 `import` 请书写在一起，eslint: [no-duplicate-imports](https://eslint.org/docs/rules/no-duplicate-imports)
 
@@ -1031,57 +560,6 @@ import bar from 'bar'
 foo.init()
 ```
 
-- 多行导入应该像多行数组和对象文字一样缩进
-
-```js
-// bad
-import { longNameA, longNameB, longNameC, longNameD, longNameE } from 'path'
-
-// good
-import {
-  longNameA,
-  longNameB,
-  longNameC,
-  longNameD,
-  longNameE
-} from 'path'
-```
-
-- 在模块 `import` 声明中禁止使用 `Webpack` 的 `loader` 语法，eslint: [import/no-webpack-loader-syntax](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
-
-```js
-// bad
-import fooSass from 'css!sass!foo.scss'
-import barCss from 'style!css!bar.css'
-
-// good
-import fooSass from 'foo.scss'
-import barCss from 'bar.css'
-```
-
-### 迭代器
-
-- 不要使用 `iterators`，建议使用 JS 更高优先级的函数代替 for-in 或 for-of 循环，除非迫不得已，eslint: [no-iterator](https://eslint.org/docs/rules/no-iterator.html) [no-restricted-syntax](https://eslint.org/docs/rules/no-restricted-syntax)
-
-> 
-
-  ```js
-  const numbers = [1, 2, 3, 4, 5]
-
-  // bad
-  let sum = 0
-  for (let num of numbers) {
-    sum += num
-  }
-
-  // good
-  let sum = 0
-  numbers.forEach(num => sum += num)
-
-  // better
-  const sum = numbers.reduce((total, num) => total + num, 0)
-  ```
-
 ### 生成器
 
 - 现阶段请不要使用生成器 `generator`
@@ -1090,20 +568,6 @@ import barCss from 'bar.css'
 
 ### 对象属性
 
-- 使用 `.` 来访问对象属性
-
-  ```js
-  const joke = {
-    name: 'haha',
-    age: 28
-  }
-
-  // bad
-  const name = joke['name']
-
-  // good
-  const name = joke.name
-  ```
 - 当访问的属性是变量时使用 `[]`
 
 ```js
@@ -1129,24 +593,6 @@ const isJedi = getProp('jedi')
 
   // good
   const demo = new Demo()
-  ```
-
-- 将所有的 `const` 和 `let` 分组
-
-  ```js
-  // bad
-  let a
-  const b
-  let c
-  const d
-  let e
-
-  // good
-  const b
-  const d
-  let a
-  let c
-  let e
   ```
 
 - 变量不要进行链式赋值
@@ -1220,73 +666,6 @@ const { type, ...coords } = data
 // 'coords' is now the 'data' object without its 'type' property.
 ```
 
-### Hoisting
-
-- `var` 存在变量提升的情况，即 `var` 声明会被提升至该作用域的顶部，但是他们的赋值并不会。而 `const` 和 `let` 并不存在这种情况，他们被赋予了 [Temporal Dead Zones, TDZ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_dead_zone_and_errors_with_let)， 了解 [typeof 不再安全](http://es-discourse.com/t/why-typeof-is-no-longer-safe/15)很重要
-
-  ```js
-  function example () {
-    console.log(notDefined)   // => throws a ReferenceError
-  }
-
-  function example () {
-    console.log(declareButNotAssigned)  // => undefined
-    var declaredButNotAssigned = true
-  }
-
-  function example () {
-    let declaredButNotAssigned
-    console.log(declaredButNotAssigned)   // => undefined
-    declaredButNotAssigned = true
-  }
-
-  function example () {
-    console.log(declaredButNotAssigned)   // => throws a ReferenceError
-    console.log(typeof declaredButNotAssigned)  // => throws a ReferenceError
-    const declaredButNotAssigned = true
-  }
-  ```
-
-- 匿名函数的变量名会提升，但函数内容不会
-
-  ```js
-  function example () {
-    console.log(anonymous)  // => undefined
-
-    anonymous()
-
-    var anonymous = function () {
-      console.log('test')
-    }
-  }
-  ```
-
-- 命名的函数表达式的变量名会被提升，但函数名和函数函数内容并不会
-
-  ```js
-  function example() {
-    console.log(named)  // => undefined
-
-    named()   // => TypeError named is not a function
-
-    superPower()  // => ReferenceError superPower is not defined
-
-    var named = function superPower () {
-      console.log('Flying')
-    }
-  }
-
-  function example() {
-    console.log(named)  // => undefined
-
-    named()   // => TypeError named is not a function
-
-    var named = function named () {
-      console.log('named')
-    }
-  }
-  ```
-
 ### 比较运算符&相等
 
 - 使用 `===` 和 `!==` 而非 `==` 和 `!=`，eslint: [eqeqeq](https://eslint.org/docs/rules/eqeqeq.html)
@@ -1328,11 +707,3 @@ const { type, ...coords } = data
 ### 标准特性
 
 为了代码的可移植性和兼容性，我们应该最大化的使用标准方法，例如优先使用 `string.charAt(3)` 而不是 `string[3]`
-
-### with() {}
-
-由于 `with` 方法会产生神奇的作用域，所以我们也是禁止使用该方法的
-
-### 修改内置对象的原型
-
-不要修改内置对象，如 `Object` 和 `Array`
